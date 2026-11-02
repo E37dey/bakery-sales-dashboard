@@ -4,6 +4,8 @@
 
 A mobile-first sales dashboard for the owner and counter staff of Bakery & Cake. It shows revenue, orders, average order and items sold, a sales-by-hour chart, top sellers and a category breakdown, with large buttons and icons and a palette taken from the logo.
 
+Live: https://e37dey.github.io/bakery-sales-dashboard/ (GitHub Pages, served from `main`)
+
 Status: first version. It runs entirely on simulated demo data. No real POS or sales source is connected, and the page says so on screen.
 
 ## Run it
