@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#3B1D0F">
+  <meta name="description" content="Mobile-first sales dashboard for Bakery &amp; Cake. Demo data.">
+  <title>Bakery &amp; Cake Sales</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yellowtail&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" role="status" aria-label="Loading sales">
+    <img src="assets/logo-circle.png" width="96" height="96" alt="Bakery &amp; Cake logo">
+    <p>Loading sales</p>
+  </div>
+
+  <header class="app-header">
+    <div class="brand">
+      <img class="logo" src="assets/logo-circle.png" width="48" height="48" alt="Bakery &amp; Cake logo">
+      <div>
+        <h1 class="brand-title">Bakery &amp; Cake</h1>
+        <p class="sub" id="date"></p>
+      </div>
+    </div>
+    <button type="button" class="icon-btn" id="refresh" aria-label="Refresh sales"><i data-icon="refresh"></i></button>
+  </header>
+
+  <main id="main">
+    <section id="view-home" aria-label="Sales dashboard">
+      <p class="print-only" id="print-title"></p>
+
+      <div class="banner offline" id="offline-banner" hidden role="status"></div>
+
+      <div class="tabs" role="tablist" aria-label="Period">
+        <button type="button" role="tab" id="tab-today" data-period="today" aria-controls="panel">Today</button>
+        <button type="button" role="tab" id="tab-week" data-period="week" aria-controls="panel">Week</button>
+        <button type="button" role="tab" id="tab-month" data-period="month" aria-controls="panel">Month</button>
+      </div>
+      <p class="note" id="compare-note"></p>
+      <p class="note demo-chip">Demo data. These are not real sales.</p>
+
+      <div class="banner error" id="error-card" hidden role="alert">
+        <i data-icon="alert" data-size="40"></i>
+        <div>
+          <strong>Could not load sales</strong>
+          <p>Check your connection and try again.</p>
+        </div>
+        <button type="button" class="btn primary" id="retry">Try again</button>
+      </div>
+
+      <div id="panel" role="tabpanel" aria-labelledby="tab-today">
+        <div class="kpis" id="kpis"></div>
+
+        <div class="two-col">
+          <section class="card" aria-labelledby="chart-title">
+            <h2 class="card-title" id="chart-title">Sales</h2>
+            <div class="legend" aria-hidden="true">
+              <span><i class="swatch cur"></i>This period</span>
+              <span><i class="swatch prev"></i>Previous</span>
+            </div>
+            <div class="chart-wrap" id="chart-wrap">
+              <div id="chart"></div>
+              <div id="chart-empty" class="chart-empty" hidden>
+                <i data-icon="wheat" data-size="64"></i>
+                <p id="chart-empty-text"></p>
+              </div>
+              <div id="tip" class="tip" role="status" hidden></div>
+              <div id="table-view" hidden></div>
+            </div>
+            <p class="summary" id="chart-summary"></p>
+            <button type="button" class="btn ghost" id="toggle-table" aria-pressed="false">View as table</button>
+          </section>
+
+          <section class="card" aria-labelledby="top-title">
+            <h2 class="card-title" id="top-title">Top sellers</h2>
+            <ol class="rows" id="top-list"></ol>
+            <button type="button" class="btn ghost" id="see-all">See all</button>
+          </section>
+        </div>
+
+        <section class="card" aria-labelledby="cat-title">
+          <h2 class="card-title" id="cat-title">By category</h2>
+          <p class="note" id="cat-note">Tap a category to filter everything above.</p>
+          <div class="tiles" id="tiles"></div>
+        </section>
+
+        <div class="actions">
+          <button type="button" class="btn primary" id="export"><i data-icon="download"></i>Export report</button>
+          <button type="button" class="btn secondary" id="share"><i data-icon="share"></i>Share</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-soon" class="soon" hidden aria-live="polite">
+      <img src="assets/logo-circle.png" width="96" height="96" alt="">
+      <h2 id="soon-title">Coming soon</h2>
+      <p>This screen is not built yet.</p>
+    </section>
+
+    <noscript><p class="note">This dashboard needs JavaScript.</p></noscript>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main">
+    <button type="button" class="nav-btn" data-view="home" aria-current="page"><i data-icon="home"></i><span>Home</span></button>
+    <button type="button" class="nav-btn" data-view="Sales"><i data-icon="chart"></i><span>Sales</span></button>
+    <button type="button" class="nav-btn" data-view="Products"><i data-icon="package"></i><span>Products</span></button>
+    <button type="button" class="nav-btn" data-view="Reports"><i data-icon="file"></i><span>Reports</span></button>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

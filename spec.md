@@ -65,6 +65,7 @@ Complementary accent. Amber sits at roughly 35 degrees on the color wheel, so it
 | `--blue-600` | `#2D6A9F` | "Previous period" comparison line, positive delta, secondary buttons, links |
 | `--blue-100` | `#DCE9F4` | Tint behind comparison badges |
 | `--red-600` | `#B3402A` | Negative delta only (a warm brick red that stays inside the brand family) |
+| `--red-100` | `#F6E0DB` | Tint behind the negative delta chip and the error card |
 
 ### 3.3 Contrast rules (WCAG 2.2 AA)
 
@@ -298,3 +299,5 @@ Sample numbers in section 4 are placeholders for layout only and are not real sa
 |------|---------|
 | `spec.md` | This document. |
 | `assets/logo.png` | Supplied logo (needs a clean replacement, see 3.1). |
+| `assets/logo-circle.png` | Supplied logo cropped to a transparent circle. Removes the checkerboard and the corner icon, but resolution is still about 580 px. |
+| `index.html`, `styles.css`, `app.js`, `data.js` | v1 implementation with demo data. |
